@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./globals.css";
 
-// Cargando fuentes locales
+// Cargamos las fuentes locales
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -32,11 +32,10 @@ export default function RootLayout({ children }) {
         <h1>{dictionary.title}</h1>
         <p>{dictionary.description}</p>
 
-        {/* Pasamos `dictionary` a Navbar */}
         <Navbar
           setGeneration={setGeneration}
           changeLanguage={setLanguage}
-          dictionary={dictionary} // Aquí se pasa el diccionario
+          dictionary={dictionary}
         />
 
         {/* Renderizamos el título según la generación */}
@@ -46,7 +45,6 @@ export default function RootLayout({ children }) {
             : `${dictionary.generacion || "Pokemons de la Generación"} ${generation}`}
         </h2>
 
-        {/* Pasamos la generación al componente RandomPokemons */}
         <RandomPokemons generation={generation} />
 
         {children}
