@@ -10,7 +10,10 @@
     const fetchRandomPokemons = async () => {
       let min, max;
 
-      if (generation === 1) {
+      if (generation === 0) {
+        min = 1;
+        max = 1000;
+      } else if (generation === 1) {
         min = 1;
         max = 151;
       } else if (generation === 2) {
@@ -19,9 +22,6 @@
       } else if (generation === 3) {
         min = 252;
         max = 386;
-      } else if (generation === 0) {
-        min = 1;
-        max = 1000;
       }
 
       const getRandomId = () => Math.floor(Math.random() * (max - min + 1)) + min;
